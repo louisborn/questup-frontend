@@ -22,7 +22,7 @@ import * as fromQuests from '../app/page-quests/page-quests.reducer';
     AppRoutingModule,
     StoreModule.forRoot({
       questsRootState: fromQuests.questsReducer
-    })
+    }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

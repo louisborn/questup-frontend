@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { QuestsState } from './page-quests.reducer';
 import { selectQuests } from './page-quests.selector';
+import { ServiceQuestsService } from './service-quests.service';
 
 @Component({
   selector: 'app-page-quests',
@@ -11,13 +12,14 @@ import { selectQuests } from './page-quests.selector';
 })
 export class PageQuestsComponent implements OnInit {
 
-  quests$: Observable<any>;
+  quests$: Observable<QuestsState>;
 
-  constructor(private store: Store<QuestsState>) { 
+  constructor(private store: Store<QuestsState>, private service: ServiceQuestsService) { 
     this.quests$ = this.store.select(selectQuests);
   }
 
   ngOnInit(): void {
+    this.service.testService();
   }
 
 }

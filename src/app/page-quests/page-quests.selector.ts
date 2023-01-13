@@ -7,7 +7,7 @@ export const selectQuestsState = createFeatureSelector<fromQuests.QuestsState>(
 
 export const selectQuests = createSelector(
     selectQuestsState,
-    (state: fromQuests.QuestsState) => {
-        state.quests
-    }
+    (state: fromQuests.QuestsState) => ({
+        quests: state.quests,
+    })
 );

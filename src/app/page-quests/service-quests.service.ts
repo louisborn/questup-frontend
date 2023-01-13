@@ -7,7 +7,7 @@ import { fillQuests } from './page-quests.actions';
 })
 export class ServiceQuestsService {
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   testService() {
     this.store.dispatch(fillQuests({quests: ['testQuest']}))
