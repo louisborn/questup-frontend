@@ -1,0 +1,42 @@
+.questup-main {
+    display: grid;
+    grid-template-areas: 
+        "nav content";
+    grid-template-columns: 200px auto;
+}
+
+.navigation__container {
+    height: 100vh;
+    background-color: #fff;
+}
+
+nav {
+    grid-area: nav;
+    margin: 12px 8px;
+}
+
+.contnet {
+    grid-area: content;
+}
+
+.navigation__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+}
+
+.navigation__item:hover {
+    background-color: #EFF5FB;
+    border-radius: 6px;
+}
+
+.active__item {
+    background-color: #EFF5FB;
+    color: #369FFF;
+    border-radius: 6px;
+}
+
+.active__item svg {
+    fill: #369FFF;
+}
