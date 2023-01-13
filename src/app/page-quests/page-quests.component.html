@@ -1,3 +1,23 @@
-<div *ngIf="quests$ | async as data">
-    <p *ngIf="data.quests != null" class="content">{{data.quests[0]}}</p>
+<div *ngIf="quests$ | async as data" class="content">
+    <section>
+        <h4 class="page__user-welcome">Hello <strong>Bruno!</strong></h4>
+        <span *ngIf="data.annual_rewards == null && data.quests == null">Please wait, your quests are being loaded by the system..</span>
+    </section>
+    <section *ngIf="data.annual_rewards != null" class="page__sections">
+        <h1 class="page__headline">Annual Rewards Available!</h1>
+        <div class="row">
+            <div *ngFor="let rewards of data.annual_rewards" class="annual-rewards__container">
+                <img [src]="'../../assets/'+rewards.image_src" [alt]="rewards.medal+'medal image'">
+                <div class="annual-rewards__info-text">
+                    <span class="annual-rewards__title">{{rewards.medal}} Medal</span>
+                    <span class="annual-rewards__text">{{rewards.reward}}</span>
+                    <span class="annual-rewards__text"><strong>Task:</strong> {{rewards.task}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section *ngIf="data.quests != null" class="page__sections">
+        <h1 class="page__headline">My Quests</h1>
+        <p *ngFor="let quest of data.quests">{{quest.calender_week}}</p>
+    </section>
 </div>

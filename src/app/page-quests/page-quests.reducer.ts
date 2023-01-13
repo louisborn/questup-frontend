@@ -5,14 +5,16 @@ export const questsFeatureKey = 'questsRootState';
 
 export interface QuestsState {
     quests: any;
+    annual_rewards: any;
 }
 
 export const initialState: QuestsState = {
-    quests: []
+    quests: null,
+    annual_rewards: null,
 }
 
 export const questsReducer = createReducer(
     initialState,
-    on(QuestsActions.fillQuests,
-        (state: QuestsState, {quests}) => ({...state, quests: quests}))
+    on(QuestsActions.fillQuestsPageData,
+        (state: QuestsState, {quests, annual_rewards}) => ({...state, quests: quests, annual_rewards: annual_rewards}))
 );

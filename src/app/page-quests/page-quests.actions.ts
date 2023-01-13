@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 
 
-export const fillQuests = createAction(
-    '[Quests] Fill Quests',
-    props<{quests: any;}>()
+export const fillQuestsPageData = createAction(
+    '[Quests] Fill Quests Page Data',
+    props<{quests: any, annual_rewards: any}>()
 );

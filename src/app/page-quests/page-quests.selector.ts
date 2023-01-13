@@ -9,5 +9,6 @@ export const selectQuests = createSelector(
     selectQuestsState,
     (state: fromQuests.QuestsState) => ({
         quests: state.quests,
+        annual_rewards: state.annual_rewards,
     })
 );

@@ -7,6 +7,7 @@ import { PageQuestsComponent } from './page-quests/page-quests.component';
 import { PageShopComponent } from './page-shop/page-shop.component';
 import { PageScoresComponent } from './page-scores/page-scores.component';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 import * as fromQuests from '../app/page-quests/page-quests.reducer';
 
@@ -20,6 +21,7 @@ import * as fromQuests from '../app/page-quests/page-quests.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({
       questsRootState: fromQuests.questsReducer
     }, {})

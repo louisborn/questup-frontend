@@ -19,7 +19,7 @@ export class PageQuestsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.testService();
+    this.service.fetchQuests();
   }
 
 }

@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  teacherId: "63a7172a8883bff3af39eb2e",
+  subjectId: 0,
+  studentId: "63a805c45958c3394e0513b5",
+  base: "http://localhost:6009/quest-up/rest/v1/",
 };
 
 /*

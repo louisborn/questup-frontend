@@ -1,0 +1,51 @@
+.content {
+    margin: 24px 32px;
+}
+
+.page__user-welcome {
+    font: 400 18px 'Roboto', sans-serif;
+    color: #369FFF;
+}
+
+.page__headline {
+    font: 600 20px 'Roboto', sans-serif;
+    margin-bottom: 32px;
+}
+
+.page__sections {
+    margin: 32px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.annual-rewards__container {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0px 4px 4px #FAFBFF;
+    padding: 22px 20px;
+}
+
+.annual-rewards__info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.annual-rewards__title {
+    font: 600 14px 'Roboto', sans-serif;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.annual-rewards__text {
+    font: 400 12px 'Roboto', sans-serif;
+    color:rgba(21, 30, 35, 0.6);
+    text-transform: capitalize;
+}
