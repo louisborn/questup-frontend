@@ -1,17 +1,23 @@
-<div class="flex flex-col container rounder-md bg-white hover:bg-gray-100 cursor-pointer rounded-md shadow-xl px-4 py-3 relative">
-    <img class="py-2" [src]="'../../../assets/'+quest.image_src" [alt]="'folder '+quest.difficulty" width="96px" height="96px">
-    <div class="flex items-center gap-2 rounded-lg border-solid border-2 border-gray-900 bg-white py-1 px-1 absolute top-4 right-4">
-        <img src="../../../assets/small-coin.svg" alt="small coind">
+<div
+    class="flex flex-col container rounder-md bg-white rounded-md shadow-xl px-4 py-3 cursor-default relative">
+    <img class="py-2 ml-4" [src]="'../../../assets/'+quest.image_src" [alt]="'folder '+quest.difficulty" width="96px"
+        height="96px">
+    <div
+        class="flex items-center gap-2 rounded-lg border-solid border-2 border-gray-900 bg-white py-1 px-1 absolute top-4 right-4">
+        <img src="../../../assets/small-coin.svg" alt="small coin">
         <p class="text-xs font-bold text-gray-900">{{quest.points}}</p>
     </div>
     <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Quest {{quest.calender_week}}</h5>
     <p class="text-xs font-normal text-gray-400">Online since {{quest.publish_date}}</p>
-    <div *ngIf="isCompleted()" class="flex items-center justify-between py-3">
+    <div *ngIf="isCompleted()" class="flex items-center justify-between py-3 h-16">
         <p class="text-xs font-normal text-gray-400">Completed</p>
         <img src="../../../assets/small-completed-medal.svg" alt="completed medal">
     </div>
-    <div *ngIf="!isCompleted()" class="flex justify-between py-3">
-        <p class="text-xs font-normal text-gray-400">Not completed</p>
-        <img src="../../../assets/small-uncompleted-medal.svg" alt="uncompleted medal">
+    <div *ngIf="!isCompleted()" class="flex justify-center py-3 h-16">
+        <button type="button" (click)="toggleQuestsModal()"
+            class="inline-flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:w-auto sm:text-sm">Complete
+            Quest</button>
     </div>
+    <app-simple-modal *ngIf="showQuestsModal" [questId]="quest._id" [questImageSource]="quest.image_src"
+        [questContent]="quest.content" (closeModalEvent)="proceedCloseModalEvent($event)"></app-simple-modal>
 </div>

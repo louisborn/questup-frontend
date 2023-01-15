@@ -11,5 +11,6 @@ export const selectQuests = createSelector(
         quests: state.quests,
         annual_rewards: state.annual_rewards,
         student_completed_quests: state.student_completed_quests,
+        loading: state.loading,
     })
 );

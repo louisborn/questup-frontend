@@ -2,12 +2,12 @@
     display: grid;
     grid-template-areas: 
         "nav content";
-    grid-template-columns: 264px auto;
+    grid-template-columns: auto 2fr;
 }
 
 .navigation__container {
     height: 100vh;
-    background-color: #fff;
+    background-color: #F9F9F9;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
     margin: 1.33em 8px;
 }
 
-.contnet {
+.content {
     grid-area: content;
 }
 

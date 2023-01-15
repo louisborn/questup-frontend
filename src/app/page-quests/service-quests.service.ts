@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 
-import { fillQuestsPageData } from './page-quests.actions';
+import { addQuestToCompleted, fillQuestsPageData, toggleLoading } from './page-quests.actions';
 import { environment } from 'src/environments/environment';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subject } from 'rxjs';
+import { SimpleModalComponent } from '../components/simple-modal/simple-modal.component';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +23,10 @@ export class ServiceQuestsService {
     `${environment.base}students/${environment.studentId}/completed-quests`
   );
 
-  constructor(private store: Store, private http: HttpClient) {}
+  constructor(private store: Store, private http: HttpClient) { }
 
   fetchQuests() {
+    this.store.dispatch(toggleLoading());
     forkJoin([
       this.httpGetQuests,
       this.httpGetAnnualRewards,
@@ -39,8 +41,23 @@ export class ServiceQuestsService {
           })
         );
       },
-      error: (error: any) => {},
-      complete: () => {},
+      error: (error: any) => { },
+      complete: () => {this.store.dispatch(toggleLoading());},
     });
+  }
+
+  saveQuestToCompleted(results: Array<any>, questId: string) {
+    let postRoute = `${environment.base}${environment.studentId}/quests/${questId}/submit`;
+    let result = new Subject<string>();
+    this.store.dispatch(toggleLoading());
+    this.http.post<any>(postRoute, { "quest": { "results": results } }).subscribe({
+      next: (data: any) => {
+        this.store.dispatch(addQuestToCompleted({ quest_id: data.inserted_id }));
+        result.next('Okay');
+      },
+      error: (error: any) => {result.next('Error')},
+      complete: () => {this.store.dispatch(toggleLoading());}
+    })
+    return result.asObservable();
   }
 }
