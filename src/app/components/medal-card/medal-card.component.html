@@ -1,0 +1,8 @@
+<div class="flex flex-auto gap-8 container rounded-md bg-white px-4 py-3 cursor-default shadow-xl">
+    <img [src]="'../../assets/'+imageSource" [alt]="medalType+ 'medal'">
+    <div class="annual-rewards__info-text">
+        <span class="text-sm font-bold capitalize mb-1">{{medalType}} Medal</span>
+        <span class="text-xs font-normal capitalize text-gray-500">{{reward}}</span>
+        <span class="text-xs font-normal capitalize text-gray-500"><strong>Task:</strong> {{taskToReceiveReward}}</span>
+    </div>
+</div>

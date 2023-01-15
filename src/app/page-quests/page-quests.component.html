@@ -1,23 +1,21 @@
 <div *ngIf="quests$ | async as data" class="content">
     <section>
         <h4 class="page__user-welcome">Hello <strong>Bruno!</strong></h4>
-        <span *ngIf="data.annual_rewards == null && data.quests == null">Please wait, your quests are being loaded by the system..</span>
+        <span *ngIf="data.annual_rewards == null && data.quests == null">Please wait, your quests are being loaded by
+            the system..</span>
     </section>
     <section *ngIf="data.annual_rewards != null" class="page__sections">
-        <h1 class="page__headline">Annual Rewards Available!</h1>
+        <h1 class="text-2xl font-extrabold mb-8">Annual Rewards Available!</h1>
         <div class="row">
-            <div *ngFor="let rewards of data.annual_rewards" class="annual-rewards__container">
-                <img [src]="'../../assets/'+rewards.image_src" [alt]="rewards.medal+'medal image'">
-                <div class="annual-rewards__info-text">
-                    <span class="annual-rewards__title">{{rewards.medal}} Medal</span>
-                    <span class="annual-rewards__text">{{rewards.reward}}</span>
-                    <span class="annual-rewards__text"><strong>Task:</strong> {{rewards.task}}</span>
-                </div>
-            </div>
+            <app-medal-card *ngFor="let rewards of data.annual_rewards" [imageSource]="rewards.image_src"
+                [medalType]="rewards.medal" [reward]="rewards.reward"
+                [taskToReceiveReward]="rewards.task" class="w-full"></app-medal-card>
         </div>
     </section>
     <section *ngIf="data.quests != null" class="page__sections">
-        <h1 class="page__headline">My Quests</h1>
-        <p *ngFor="let quest of data.quests">{{quest.calender_week}}</p>
+        <h1 class="text-2xl font-extrabold mb-8">My Quests</h1>
+        <div style="display: flex; justify-content: flex-start; flex-wrap:wrap;">
+            <app-quests *ngFor="let quest of data.quests" [quest]="quest" [studentCompletedQuests]="data.student_completed_quests"></app-quests>
+        </div>
     </section>
 </div>

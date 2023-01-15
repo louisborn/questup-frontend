@@ -14,12 +14,18 @@ export class PageQuestsComponent implements OnInit {
 
   quests$: Observable<QuestsState>;
 
+  showModal: boolean = false;
+
   constructor(private store: Store<QuestsState>, private service: ServiceQuestsService) { 
     this.quests$ = this.store.select(selectQuests);
   }
 
   ngOnInit(): void {
     this.service.fetchQuests();
+  }
+
+  toggleModalDisplay() {
+    this.showModal = !this.showModal;
   }
 
 }

@@ -1,0 +1,17 @@
+<div class="flex flex-col container rounder-md bg-white hover:bg-gray-100 cursor-pointer rounded-md shadow-xl px-4 py-3 relative">
+    <img class="py-2" [src]="'../../../assets/'+quest.image_src" [alt]="'folder '+quest.difficulty" width="96px" height="96px">
+    <div class="flex items-center gap-2 rounded-lg border-solid border-2 border-gray-900 bg-white py-1 px-1 absolute top-4 right-4">
+        <img src="../../../assets/small-coin.svg" alt="small coind">
+        <p class="text-xs font-bold text-gray-900">{{quest.points}}</p>
+    </div>
+    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Quest {{quest.calender_week}}</h5>
+    <p class="text-xs font-normal text-gray-400">Online since {{quest.publish_date}}</p>
+    <div *ngIf="isCompleted()" class="flex items-center justify-between py-3">
+        <p class="text-xs font-normal text-gray-400">Completed</p>
+        <img src="../../../assets/small-completed-medal.svg" alt="completed medal">
+    </div>
+    <div *ngIf="!isCompleted()" class="flex justify-between py-3">
+        <p class="text-xs font-normal text-gray-400">Not completed</p>
+        <img src="../../../assets/small-uncompleted-medal.svg" alt="uncompleted medal">
+    </div>
+</div>
