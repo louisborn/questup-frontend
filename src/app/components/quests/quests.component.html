@@ -1,5 +1,5 @@
 <div
-    class="flex flex-col container rounder-md bg-white rounded-md shadow-xl px-4 py-3 cursor-default relative">
+    class="flex flex-col container rounded-md bg-white rounded-md shadow-xl px-4 py-3 cursor-default relative">
     <img class="py-2 ml-4" [src]="'../../../assets/'+quest.image_src" [alt]="'folder '+quest.difficulty" width="96px"
         height="96px">
     <div
@@ -7,7 +7,7 @@
         <img src="../../../assets/small-coin.svg" alt="small coin">
         <p class="text-xs font-bold text-gray-900">{{quest.points}}</p>
     </div>
-    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Quest {{quest.calender_week}}</h5>
+    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 font-mono">Quest {{quest.calender_week}}</h5>
     <p class="text-xs font-normal text-gray-400">Online since {{quest.publish_date}}</p>
     <div *ngIf="isCompleted()" class="flex items-center justify-between py-3 h-16">
         <p class="text-xs font-normal text-gray-400">Completed</p>

@@ -1,8 +1,10 @@
 .questup-main {
     display: grid;
     grid-template-areas: 
+        "nav top"
         "nav content";
     grid-template-columns: auto 2fr;
+    grid-template-rows: 48px 1fr;
 }
 
 .navigation__container {
@@ -12,7 +14,11 @@
 
 nav {
     grid-area: nav;
-    margin: 1.33em 8px;
+    margin: 48px 8px;
+}
+
+.top {
+    grid-area: top;
 }
 
 .content {
