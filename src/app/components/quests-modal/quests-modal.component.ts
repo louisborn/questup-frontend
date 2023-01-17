@@ -9,18 +9,18 @@ export interface QuestContent {
 export const initialState = {
   title: '',
   questions: [],
-}
+};
 
 @Component({
   selector: 'app-quests-modal',
   templateUrl: './quests-modal.component.html',
-  styleUrls: ['./quests-modal.component.css']
+  styleUrls: ['./quests-modal.component.css'],
 })
 export class QuestsModal {
   @Input() questId = '';
   @Input() questImageSource = '';
-  @Input() questContent:QuestContent = initialState;
-  @Input() questPoints = 0;
+  @Input() questContent: QuestContent = initialState;
+  @Input() questRewardPoints = 0;
 
   @Output() closeModalEvent = new EventEmitter<string>();
 
@@ -32,27 +32,53 @@ export class QuestsModal {
     this.closeModalEvent.emit(value);
   }
 
-  saveUserInput(questId: string, pointsEarned: number) {
-    let questionInputFields = document.querySelectorAll<HTMLInputElement>('[id^=quest_question__]');
-    let results:any = {}
-    let hasEmptyInput:boolean = false;
-    questionInputFields.forEach((input, idx) => {
-      if (input.value == null || input.value == "") {
-        hasEmptyInput = true;
-        return;
-      }
-      results[idx] = input.value;
+  _getQuestionInputFieldsFromDOM() {
+    return document.querySelectorAll<HTMLInputElement>(
+      '[id^=quest_question__]'
+    );
+  }
+
+  _getInputFieldsValue(inputFields: NodeListOf<HTMLInputElement>) {
+    let userInput: any = {};
+    inputFields.forEach((input, idx) => {
+      userInput[idx] = input.value;
     });
-    if (!hasEmptyInput) {
-      this.service.saveQuestToCompleted(results, questId, pointsEarned).subscribe((result) => {
-        if (result == 'Okay') this.emitCloseModalEvent('close');
-      })
+    return userInput;
+  }
+
+  _hasEmptyInputFieldsValue(inputFieldsValue: Object) {
+    let values = Object.values(inputFieldsValue);
+    let checkResult = values.find((entry:any) => entry == '' || entry == null);
+    return (checkResult) ? false : true;
+  }
+
+  /**
+   * 
+   * @param questId the unique quest identifier
+   * @param pointsEarned the reward points earned when submitting the quest
+   */
+  saveUserInput(questId: string, pointsEarned: number) {
+    let questionInputFields = this._getQuestionInputFieldsFromDOM();
+    let hasEmptyInput: boolean = false;
+    let userInput = this._getInputFieldsValue(questionInputFields);
+    
+    if (this._hasEmptyInputFieldsValue(userInput)) {
+      hasEmptyInput = true;
+      this.toggleHasEmptyFieldAlert(hasEmptyInput);
     } else {
-      this.toggleHasEmptyFieldError(hasEmptyInput);
+      this.service
+        .saveQuestToCompleted(userInput, questId, pointsEarned)
+        .subscribe((result) => {
+          if (result == 'Okay') this.emitCloseModalEvent('close');
+        });
     }
   }
 
-  toggleHasEmptyFieldError(value: boolean) {
-    value ? this.hasEmptyFields = true : this.hasEmptyFields = false;
+  /**
+   * Toggles the visibility of the alert
+   * @param value the empty field state value
+   */
+  toggleHasEmptyFieldAlert(value: boolean) {
+    this.hasEmptyFields = (value) ? true : false;
   }
 }

@@ -18,6 +18,6 @@
             Quest</button>
     </div>
     <app-quests-modal *ngIf="showQuestsModal" [questId]="quest._id" [questImageSource]="quest.image_src"
-        [questContent]="quest.content" [questPoints]="quest.points"
+        [questContent]="quest.content" [questRewardPoints]="quest.points"
         (closeModalEvent)="proceedCloseModalEvent($event)"></app-quests-modal>
 </div>
