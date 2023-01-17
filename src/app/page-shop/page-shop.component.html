@@ -1,92 +1,77 @@
-<div>
-  <p class="px-7 py-3 header">Shop</p>
-</div>
+<div class="my-8 mx-8">
+  <h1 class="text-2xl font-bold mb-8">Shop</h1>
+  <div>
+    <mat-card class="example-card">
+      <p class="card-title py-3">
+        <b>Daily Reward</b>
+      </p>
 
-<div class="px-7">
-  <mat-card class="example-card">
-    <p class="card-title py-3">
-      <b>Daily Reward</b>
-    </p>
+      <mat-card-content>
+        <img class="mx-auto card-image" mat-card-image src="../../assets/chest.jpg" />
+      </mat-card-content>
+      <mat-card-actions>
+        <div
+          class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full">
+          COLLECT
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
-    <mat-card-content>
-      <img
-        class="mx-auto card-image"
-        mat-card-image
-        src="../../assets/chest.jpg"
-      />
-    </mat-card-content>
-    <mat-card-actions>
-      <div
-        class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full"
-      >
-        COLLECT
-      </div>
-    </mat-card-actions>
-  </mat-card>
-</div>
-
-<div class="px-7 py-10">
-  <mat-grid-list cols="6" class="grid-list">
-    <mat-grid-tile
-      ><mat-card class="reward-card px-4 py-3">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <p>Free ticket homework</p>
+  <div>
+    <mat-grid-list cols="6" class="grid-list">
+      <mat-grid-tile><mat-card class="reward-card px-4 py-3">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <p>Free ticket homework</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              Usage: <b class="usage">1</b>
+            </div>
           </div>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            Usage: <b class="usage">1</b>
+          <mat-card-actions>
+            <div
+              class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full">
+              <img src="../assets/small-coin.svg" alt="coin" />
+              3000
+            </div>
+          </mat-card-actions>
+        </mat-card></mat-grid-tile>
+      <mat-grid-tile><mat-card class="reward-card px-4 py-3">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <p>Free short tests</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              Usage: <b class="usage">1</b>
+            </div>
           </div>
-        </div>
-        <mat-card-actions>
-          <div
-            class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full"
-          >
-            <img src="../assets/small-coin.svg" alt="coin" />
-            3000
+          <mat-card-actions>
+            <div
+              class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full">
+              <img src="../assets/small-coin.svg" alt="coin" />
+              1750
+            </div>
+          </mat-card-actions>
+        </mat-card></mat-grid-tile>
+      <mat-grid-tile><mat-card class="reward-card px-4 py-3">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <p>Sweets</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              Usage: <b class="usage">1</b>
+            </div>
           </div>
-        </mat-card-actions>
-      </mat-card></mat-grid-tile
-    >
-    <mat-grid-tile
-      ><mat-card class="reward-card px-4 py-3">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <p>Free short tests</p>
-          </div>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            Usage: <b class="usage">1</b>
-          </div>
-        </div>
-        <mat-card-actions>
-          <div
-            class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full"
-          >
-            <img src="../assets/small-coin.svg" alt="coin" />
-            1750
-          </div>
-        </mat-card-actions>
-      </mat-card></mat-grid-tile
-    >
-    <mat-grid-tile
-      ><mat-card class="reward-card px-4 py-3">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <p>Sweets</p>
-          </div>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            Usage: <b class="usage">1</b>
-          </div>
-        </div>
-        <mat-card-actions>
-          <div
-            class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full"
-          >
-            <img src="../assets/small-coin.svg" alt="coin" />
-            1250
-          </div>
-        </mat-card-actions>
-      </mat-card></mat-grid-tile
-    >
-    <mat-grid-tile></mat-grid-tile>
-  </mat-grid-list>
+          <mat-card-actions>
+            <div
+              class="reward mx-auto my-5 card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase border-gray-300 border-2 px-3 py-1 bg-white text-gray-900 rounded-full">
+              <img src="../assets/small-coin.svg" alt="coin" />
+              1250
+            </div>
+          </mat-card-actions>
+        </mat-card></mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
