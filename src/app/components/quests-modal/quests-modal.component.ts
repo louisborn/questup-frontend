@@ -12,11 +12,11 @@ export const initialState = {
 }
 
 @Component({
-  selector: 'app-simple-modal',
-  templateUrl: './simple-modal.component.html',
-  styleUrls: ['./simple-modal.component.css']
+  selector: 'app-quests-modal',
+  templateUrl: './quests-modal.component.html',
+  styleUrls: ['./quests-modal.component.css']
 })
-export class SimpleModalComponent {
+export class QuestsModal {
   @Input() questId = '';
   @Input() questImageSource = '';
   @Input() questContent:QuestContent = initialState;

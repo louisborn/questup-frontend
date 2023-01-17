@@ -9,7 +9,7 @@ import {
 } from './page-quests.actions';
 import { environment } from 'src/environments/environment';
 import { forkJoin, Subject } from 'rxjs';
-import { SimpleModalComponent } from '../components/simple-modal/simple-modal.component';
+import { QuestsModal } from '../components/quests-modal/quests-modal.component';
 
 @Injectable({
   providedIn: 'root',
