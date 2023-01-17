@@ -1,0 +1,53 @@
+.salutation {
+  color: #369FFF;
+}
+
+
+.header{
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.example-card {
+  max-width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.reward-card {
+  width: 90%;
+  min-height: 150px;
+  border-radius: 10px;
+  color: gray;
+}
+
+.grid-list {
+  margin-left: -10px;
+}
+
+.reward {
+  cursor: pointer;
+}
+
+.usage {
+  color: black;
+}
+
+.card-image {
+  height: 50%;
+  width: 50%
+}
+
+.card-title{
+  width: 100%;
+  text-align: center;
+}
+
+.card-button {
+  background: #f0b82a;
+  color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
