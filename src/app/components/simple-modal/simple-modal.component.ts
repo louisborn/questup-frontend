@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { QuestsState } from 'src/app/page-quests/page-quests.reducer';
 import { ServiceQuestsService } from 'src/app/page-quests/service-quests.service';
 
 export interface QuestContent {
@@ -22,6 +20,7 @@ export class SimpleModalComponent {
   @Input() questId = '';
   @Input() questImageSource = '';
   @Input() questContent:QuestContent = initialState;
+  @Input() questPoints = 0;
 
   @Output() closeModalEvent = new EventEmitter<string>();
 
@@ -33,22 +32,27 @@ export class SimpleModalComponent {
     this.closeModalEvent.emit(value);
   }
 
-  saveUserInput(questId: string) {
+  saveUserInput(questId: string, pointsEarned: number) {
     let questionInputFields = document.querySelectorAll<HTMLInputElement>('[id^=quest_question__]');
     let results:any = {}
+    let hasEmptyInput:boolean = false;
     questionInputFields.forEach((input, idx) => {
-      if (input == null) {
-        this.toggleHasEmptyFieldError();
+      if (input.value == null || input.value == "") {
+        hasEmptyInput = true;
         return;
       }
       results[idx] = input.value;
     });
-    this.service.saveQuestToCompleted(results, questId).subscribe((result) => {
-      if (result == 'Okay') this.emitCloseModalEvent('close');
-    })
+    if (!hasEmptyInput) {
+      this.service.saveQuestToCompleted(results, questId, pointsEarned).subscribe((result) => {
+        if (result == 'Okay') this.emitCloseModalEvent('close');
+      })
+    } else {
+      this.toggleHasEmptyFieldError(hasEmptyInput);
+    }
   }
 
-  toggleHasEmptyFieldError() {
-    this.hasEmptyFields = !this.hasEmptyFields;
+  toggleHasEmptyFieldError(value: boolean) {
+    value ? this.hasEmptyFields = true : this.hasEmptyFields = false;
   }
 }

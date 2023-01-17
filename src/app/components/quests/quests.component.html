@@ -19,5 +19,5 @@
             Quest</button>
     </div>
     <app-simple-modal *ngIf="showQuestsModal" [questId]="quest._id" [questImageSource]="quest.image_src"
-        [questContent]="quest.content" (closeModalEvent)="proceedCloseModalEvent($event)"></app-simple-modal>
+        [questContent]="quest.content" [questPoints]="quest.points" (closeModalEvent)="proceedCloseModalEvent($event)"></app-simple-modal>
 </div>
