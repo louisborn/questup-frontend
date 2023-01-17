@@ -10,11 +10,12 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import * as fromQuests from '../app/page-quests/page-quests.reducer';
-import { SimpleModalComponent } from './components/simple-modal/simple-modal.component';
+import { QuestsModal } from './components/quests-modal/quests-modal.component';
 import { MedalCardComponent } from './components/medal-card/medal-card.component';
 import { QuestsComponent } from './components/quests/quests.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     PageQuestsComponent,
     PageShopComponent,
     PageScoresComponent,
-    SimpleModalComponent,
+    QuestsModal,
     MedalCardComponent,
     QuestsComponent,
+    LoaderComponent
+
   ],
   imports: [
     BrowserModule,

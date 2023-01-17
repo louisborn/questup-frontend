@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SimpleModalComponent } from './simple-modal.component';
+import { QuestsModal } from './quests-modal.component';
 
 describe('SimpleModalComponent', () => {
-  let component: SimpleModalComponent;
-  let fixture: ComponentFixture<SimpleModalComponent>;
+  let component: QuestsModal;
+  let fixture: ComponentFixture<QuestsModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SimpleModalComponent ]
+      declarations: [ QuestsModal ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SimpleModalComponent);
+    fixture = TestBed.createComponent(QuestsModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

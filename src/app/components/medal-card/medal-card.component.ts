@@ -3,12 +3,11 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-medal-card',
   templateUrl: './medal-card.component.html',
-  styleUrls: ['./medal-card.component.css']
+  styleUrls: ['./medal-card.component.css'],
 })
 export class MedalCardComponent {
-
-  @Input() imageSource = '';
+  @Input() medalImageSource = '';
   @Input() medalType = '';
-  @Input() reward = '';
-  @Input() taskToReceiveReward = '';
+  @Input() medalReward = '';
+  @Input() medalTaskToEarnReward = '';
 }

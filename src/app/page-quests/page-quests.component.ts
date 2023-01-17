@@ -8,15 +8,17 @@ import { ServiceQuestsService } from './service-quests.service';
 @Component({
   selector: 'app-page-quests',
   templateUrl: './page-quests.component.html',
-  styleUrls: ['./page-quests.component.css']
+  styleUrls: ['./page-quests.component.css'],
 })
 export class PageQuestsComponent implements OnInit {
-
   quests$: Observable<QuestsState>;
 
   showModal: boolean = false;
 
-  constructor(private store: Store<QuestsState>, private service: ServiceQuestsService) { 
+  constructor(
+    private store: Store<QuestsState>,
+    private service: ServiceQuestsService
+  ) {
     this.quests$ = this.store.select(selectQuests);
   }
 
@@ -27,5 +29,4 @@ export class PageQuestsComponent implements OnInit {
   toggleModalDisplay() {
     this.showModal = !this.showModal;
   }
-
 }
