@@ -49,7 +49,7 @@ export class QuestsModal {
   _hasEmptyInputFieldsValue(inputFieldsValue: Object) {
     let values = Object.values(inputFieldsValue);
     let checkResult = values.find((entry:any) => entry == '' || entry == null);
-    return (checkResult) ? false : true;
+    return (checkResult===undefined) ? false : true;
   }
 
   /**
