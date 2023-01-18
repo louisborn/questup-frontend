@@ -25,6 +25,6 @@ export class PageShopComponent implements OnInit {
   }
 
   getDailyChestWin() {
-    
+    this.service.fetchDailyChestWin();
   }
 }

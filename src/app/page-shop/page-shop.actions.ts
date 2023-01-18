@@ -9,6 +9,15 @@ export const fillShopPageData = createAction(
   }>()
 );
 
+export const showDailyChestWin = createAction(
+  '[Shop] Daily Chest Collected',
+  props<{daily_chest_win: number}>()
+);
+
 export const toggleLoading = createAction(
   '[Shop] Toggle Loading',
+);
+
+export const toggleButtonLoading = createAction(
+  '[Shop] Toggle Button Loading',
 );
