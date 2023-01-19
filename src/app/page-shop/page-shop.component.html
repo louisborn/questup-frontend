@@ -91,9 +91,15 @@
             </div>
           </div>
           <div
+            *ngIf="data.user_point_balance >= item.price"
             class="reward card-button text-xs cursor-default inline-flex gap-1 items-center font-bold leading-sm uppercase bg-white text-gray-900 rounded-full">
             <img src="../assets/small-coin.svg" alt="coin" />
             {{item.price}}
+          </div>
+          <div
+            *ngIf="data.user_point_balance < item.price"
+            >
+            <p class="text-xs font-normal capitalize text-gray-500 mb-0.5">Not enough points</p>
           </div>
         </div>
       </div>
