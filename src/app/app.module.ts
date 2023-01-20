@@ -18,6 +18,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 
 import * as fromQuests from '../app/page-quests/page-quests.reducer';
 import * as fromShop from '../app/page-shop/page-shop.reducer';
+import * as fromScores from '../app/page-scores/page-scores.reducer';
 import { ShopItemComponent } from './components/shop-item/shop-item.component';
 import { SimpleModalComponent } from './components/simple-modal/simple-modal.component'; 
 
@@ -45,6 +46,7 @@ import { SimpleModalComponent } from './components/simple-modal/simple-modal.com
       {
         questsRootState: fromQuests.questsReducer,
         shopRootState: fromShop.shopReducer,
+        scoresRootState: fromScores.scoreReducer,
       },
       {}
     ),
