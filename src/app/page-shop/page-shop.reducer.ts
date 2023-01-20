@@ -38,10 +38,19 @@ export const shopReducer = createReducer(
       has_today_been_redeemed: has_today_been_redeemed,
     })
   ),
+  on(ShopActions.buyShopItem, (state: ShopState, {item_price}) => ({
+    ...state,
+    user_point_balance: (state.user_point_balance - item_price),
+  })),
   on(ShopActions.showDailyChestWin, (state: ShopState, {daily_chest_win}) => ({
     ...state,
     daily_chest_win: daily_chest_win,
     show_daily_chest_win: true,
+  })),
+  on(ShopActions.closeDailyChestWin, (state: ShopState, {}) => ({
+    ...state,
+    show_daily_chest_win: false,
+    has_today_been_redeemed: true,
   })),
   on(ShopActions.toggleLoading, (state: ShopState, {}) => ({
     ...state,

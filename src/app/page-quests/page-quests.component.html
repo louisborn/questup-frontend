@@ -1,5 +1,5 @@
 <div *ngIf="quests$ | async as data" >
-    <app-loader *ngIf="data.loading" [loadingMessage]="'Quests'"></app-loader>
+    <app-loader *ngIf="data.loading"></app-loader>
     <div class="my-8 mx-8">
         <section *ngIf="data.annual_rewards != null" class="page__sections">
             <h1 class="text-2xl font-bold mb-8">Annual Rewards Available!</h1>

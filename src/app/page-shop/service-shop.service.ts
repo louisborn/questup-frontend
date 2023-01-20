@@ -3,7 +3,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { forkJoin } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { fillShopPageData, showDailyChestWin, toggleButtonLoading, toggleLoading } from './page-shop.actions';
+import {
+  buyShopItem,
+  fillShopPageData,
+  showDailyChestWin,
+  toggleButtonLoading,
+  toggleLoading,
+} from './page-shop.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +38,7 @@ export class ServiceShopService {
       next: (data: any) => {
         this.store.dispatch(
           fillShopPageData({
-            shop_items: data.shop_items.payload[0].items,
+            shop_items: data.shop_items.payload,
             user_point_balance: data.user_scores.payload[0].points_balance,
             has_today_been_redeemed:
               data.user_scores.payload[0].latest_redeem_date,
@@ -50,12 +56,34 @@ export class ServiceShopService {
     this.store.dispatch(toggleButtonLoading());
     this.httpGetDailyChestWin.subscribe({
       next: (data: any) => {
-        this.store.dispatch(showDailyChestWin({daily_chest_win: data.payload.win}));
+        this.store.dispatch(
+          showDailyChestWin({ daily_chest_win: data.payload.win })
+        );
       },
       error: (error: any) => {},
       complete: () => {
         this.store.dispatch(toggleButtonLoading());
       },
     });
+  }
+
+  buyShopItem(itemId: any, itemPrice: number) {
+    this.store.dispatch(toggleLoading());
+    this.http
+      .post<any>(
+        `${environment.base}student/${environment.studentId}/shop/buy/${itemId}`,
+        {item_price: itemPrice}
+      )
+      .subscribe({
+        next: (response: any) => {
+          if (response.payload[0].status === 'Okay') {
+            this.store.dispatch(buyShopItem({ item_price: itemPrice }));
+          }
+        },
+        error: (error: any) => {},
+        complete: () => {
+          this.store.dispatch(toggleLoading());
+        },
+      });
   }
 }

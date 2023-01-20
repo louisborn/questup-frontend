@@ -17,7 +17,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { LoaderComponent } from './components/loader/loader.component';
 
 import * as fromQuests from '../app/page-quests/page-quests.reducer';
-import * as fromShop from '../app/page-shop/page-shop.reducer'; 
+import * as fromShop from '../app/page-shop/page-shop.reducer';
+import { ShopItemComponent } from './components/shop-item/shop-item.component';
+import { SimpleModalComponent } from './components/simple-modal/simple-modal.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import * as fromShop from '../app/page-shop/page-shop.reducer';
     QuestsModal,
     MedalCardComponent,
     QuestsComponent,
-    LoaderComponent
+    LoaderComponent,
+    ShopItemComponent,
+    SimpleModalComponent
 
   ],
   imports: [
