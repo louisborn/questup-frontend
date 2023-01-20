@@ -1,0 +1,31 @@
+<div [ngClass]="{'justify-between': canAffordShopItem(item.price), 'justify-center cursor-not-allowed': !canAffordShopItem(item.price)}"
+    class="relative flex items-center gap-4 h-20 relative p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+    <div *ngIf="canAffordShopItem(item.price)" class="flex flex-col">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p class="text-sm font-bold capitalize mb-1">{{item.title}}</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p class="text-xs font-normal capitalize text-gray-500 mb-0.5">
+                Usage: <strong>{{item.usage}}</strong>
+            </p>
+        </div>
+    </div>
+    <div *ngIf="!canAffordShopItem(item.price)" class="absolute z-10 flex flex-col items-center w-1/2">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p class="text-sm font-bold capitalize mb-1">Shop reward hidden</p>
+        </div>
+        <div class="bg-gray-200 rounded-full dark:bg-gray-700 w-full">
+            <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                [ngStyle]="{'width': calcUserPointBalanceAndItemPriceDiff(item.price)+'%'}">
+                {{calcUserPointBalanceAndItemPriceDiff(item.price)+' %'}}</div>
+        </div>
+    </div>
+    <button *ngIf="canAffordShopItem(item.price)"
+        class="text-xs inline-flex gap-1 items-center font-bold leading-sm bg-yellow-500 text-gray-900 rounded-full px-4 py-1"
+        title="Buy item with coins" (click)="buyShopItem()">
+        <img src="../assets/small-coin.svg" alt="coin" />
+        {{item.price}}
+    </button>
+    <img *ngIf="!canAffordShopItem(item.price)" src="../../assets/bg-for-blur.svg" alt="background image to blur"
+        class="background--blur" />
+</div>

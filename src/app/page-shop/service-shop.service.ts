@@ -1,9 +1,89 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { forkJoin } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import {
+  buyShopItem,
+  fillShopPageData,
+  showDailyChestWin,
+  toggleButtonLoading,
+  toggleLoading,
+} from './page-shop.actions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceShopService {
+  httpGetDailyChestWin = this.http.get(
+    `${environment.base}daily-quest/win/${environment.studentId}`
+  );
 
-  constructor() { }
+  httpGetShopItems = this.http.get(
+    `${environment.base}shop-items/${environment.teacherId}`
+  );
+
+  httpGetUserScores = this.http.get(
+    `${environment.base}student/${environment.studentId}/shop/points`
+  );
+
+  constructor(private store: Store, private http: HttpClient) {}
+
+  fetchShopState() {
+    this.store.dispatch(toggleLoading());
+    forkJoin({
+      shop_items: this.httpGetShopItems,
+      user_scores: this.httpGetUserScores,
+    }).subscribe({
+      next: (data: any) => {
+        this.store.dispatch(
+          fillShopPageData({
+            shop_items: data.shop_items.payload,
+            user_point_balance: data.user_scores.payload[0].points_balance,
+            has_today_been_redeemed:
+              data.user_scores.payload[0].latest_redeem_date,
+          })
+        );
+      },
+      error: (error: any) => {},
+      complete: () => {
+        this.store.dispatch(toggleLoading());
+      },
+    });
+  }
+
+  fetchDailyChestWin() {
+    this.store.dispatch(toggleButtonLoading());
+    this.httpGetDailyChestWin.subscribe({
+      next: (data: any) => {
+        this.store.dispatch(
+          showDailyChestWin({ daily_chest_win: data.payload.win })
+        );
+      },
+      error: (error: any) => {},
+      complete: () => {
+        this.store.dispatch(toggleButtonLoading());
+      },
+    });
+  }
+
+  buyShopItem(itemId: any, itemPrice: number) {
+    this.store.dispatch(toggleLoading());
+    this.http
+      .post<any>(
+        `${environment.base}student/${environment.studentId}/shop/buy/${itemId}`,
+        {item_price: itemPrice}
+      )
+      .subscribe({
+        next: (response: any) => {
+          if (response.payload[0].status === 'Okay') {
+            this.store.dispatch(buyShopItem({ item_price: itemPrice }));
+          }
+        },
+        error: (error: any) => {},
+        complete: () => {
+          this.store.dispatch(toggleLoading());
+        },
+      });
+  }
 }
