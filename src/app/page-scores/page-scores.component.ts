@@ -12,6 +12,8 @@ import { ServiceScoresService } from './service-scores.service';
 export class PageScoresComponent implements OnInit {
   scores$: Observable<any>;
 
+  showLevelUpFeature: boolean = false;
+
   constructor(private store: Store, private service: ServiceScoresService) {
     this.scores$ = this.store.select(selectQuests);
   }
@@ -35,5 +37,9 @@ export class PageScoresComponent implements OnInit {
     let questsToCompleteForMedal: number =
       (totalAvailableQuests / 100) * amountToCompleteInPercentage;
     return ((userCompletedQuests / questsToCompleteForMedal) * 100).toFixed(0);
+  }
+
+  toggleLevelUpFeatureModal() {
+    this.showLevelUpFeature = !this.showLevelUpFeature;
   }
 }
