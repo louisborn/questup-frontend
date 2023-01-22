@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import * as fromLevelUpFeat from '../level-up-modal/level-up-modal.reducer';
-import { changePage } from './level-up-modal.actions';
+import { changePage, setStudyTime } from './level-up-modal.actions';
 import { selectLevelUpFeat } from './level-up-modal.selector';
 
 @Component({
@@ -13,6 +13,8 @@ import { selectLevelUpFeat } from './level-up-modal.selector';
 })
 export class LevelUpModalComponent {
   @Output() closeModalEvent: EventEmitter<string> = new EventEmitter<string>;
+
+  availableModalSteps:Array<any> = [{title: 'Tool Usage', indicator: 0}, {title: 'Failures/ Absences', indicator: 1}, {title: 'Others', indicator: 2}];
 
   levelUpFeat$: Observable<fromLevelUpFeat.LevelUpFeatState>;
 
@@ -27,5 +29,23 @@ export class LevelUpModalComponent {
   emitChangePage(currentPage:number, value: string) {
     let newPage:number = (value === 'next') ? (currentPage+1) : (currentPage-1);
     this.store.dispatch(changePage({indicator: newPage}));
+  }
+
+  isStepLast(currentStep: number) {
+    return currentStep === (this.availableModalSteps.length - 1);
+  }
+
+  isStepFirst(currentStep: number) {
+    return currentStep === (this.availableModalSteps[0].indicator);
+  }
+
+  emitSetStudyTime() {
+    let studytime = parseInt((<HTMLInputElement>document.querySelector('[id^=studytime_]:checked')).value);
+    console.log(studytime);
+    this.store.dispatch(setStudyTime({studytime: studytime}));
+  }
+
+  calculatePredictedLevel() {
+    
   }
 }

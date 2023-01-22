@@ -7,5 +7,6 @@ export const selectLevelUpFeat = createSelector(
     selectLevelUpFeatState,
     (state: fromLevelUpFeat.LevelUpFeatState) => ({
         indicator: state.indicator,
+        studytime: state.studytime,
     })
 );

@@ -5,10 +5,12 @@ export const levelUpFeatureKey = 'levelUpRootState'
 
 export interface LevelUpFeatState {
   indicator: number;
+  studytime: number;
 }
 
 export const initialState: LevelUpFeatState = {
   indicator: 0,
+  studytime: 0,
 };
 
 export const levelUpFeatReducer = createReducer(

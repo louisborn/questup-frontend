@@ -27,6 +27,7 @@ import { SimpleModalComponent } from './components/simple-modal/simple-modal.com
 import { CommonModule } from '@angular/common';
 import { StudentActivityHeatMapComponent } from './components/student-activity-heat-map/student-activity-heat-map.component';
 import { LevelUpModalComponent } from './components/level-up-modal/level-up-modal.component';
+import { SetpIndicatorComponent } from './components/setp-indicator/setp-indicator.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -43,7 +44,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ShopItemComponent,
     SimpleModalComponent,
     StudentActivityHeatMapComponent,
-    LevelUpModalComponent
+    LevelUpModalComponent,
+    SetpIndicatorComponent
 
   ],
   imports: [
