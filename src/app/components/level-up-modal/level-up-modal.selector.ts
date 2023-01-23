@@ -8,5 +8,14 @@ export const selectLevelUpFeat = createSelector(
     (state: fromLevelUpFeat.LevelUpFeatState) => ({
         indicator: state.indicator,
         studytime: state.studytime,
+        g1: state.g1,
+        g2: state.g2,
+        failures: state.failures,
+        absences: state.absences,
+        freetime: state.freetime,
+        goout: state.goout,
+        traveltime: state.traveltime,
+        prediction_result: state.prediction_result,
+        user_personal: state.user_personal,
     })
 );

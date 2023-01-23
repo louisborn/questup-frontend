@@ -6,34 +6,70 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./student-activity-heat-map.component.css']
 })
 export class StudentActivityHeatMapComponent {
-  @Input() userActivity: any;
+  @Input() userActivity: any = null;
+
+  private _activityLog: any;
+  private _countedActivities: number = 0;
+  graph: any;
 
   private colorscaleValue = [
-    [0, '#e5e7eb'],
+    [0, '#f5f5f5'],
     [1, '#22c55e'],
   ];
 
-  private calenderWeeks = this.calcCalenderWeeks()
+  constructor() {}
 
-  public graph = {
-    data: [
-      {
-        z: [[0,0,3,1,0],[0,0,2,1,2],[3,1,1,1,0],[1,0,1,1,0],[3,0,1,1,0]],
-        x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        y: this.calenderWeeks,
-        type: 'heatmap',
-        hoverongaps: false,
-        colorscale: this.colorscaleValue,
-      }
-    ],
-    layout: {autosize: true}
+  ngOnInit() {
+    this._activityLog = this.userActivity;
+    this.countActivities();
+    this.initGraph();
   }
 
-  calcCalenderWeeks() {
-    let cw:Array<string> = []
-    for (let i = 1; i <= 52; i++) {
-      cw.push(`cw${i}`)
+  set countedActivities(count: number) {
+    this._countedActivities = count;
+  }
+
+  get countedActivities() {
+    return this._countedActivities;
+  }
+
+  get logZ() {
+    return this._activityLog.z;
+  }
+
+  get logX() {
+    return this._activityLog.x;
+  }
+
+  get logY() {
+    return this._activityLog.y;
+  }
+
+  initGraph() {
+    this.graph = {
+      data: [
+        {
+          z: this.logZ,
+          x: this.logX,
+          y: this.logY,
+          type: 'heatmap',
+          hoverongaps: false,
+          colorscale: this.colorscaleValue,
+        }
+      ],
+      layout: {autosize: true}
+    };
+  }
+
+  countActivities() {
+    let count = 0;
+    for (let arr of this.logZ) {
+      for (let activity of arr){
+        if (activity != null && activity > 0) {
+          count++;
+        }
+      }
     }
-    return cw;
+    this.countedActivities = count;
   }
 }

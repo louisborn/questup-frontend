@@ -12,6 +12,8 @@ export const selectQuests = createSelector(
         total_gained_points: state.total_gained_points,
         total_quests_completed: state.total_quests_completed,
         total_quests_available: state.total_quests_available,
+        user_personal: state.user_personal,
+        user_activity_log: state.user_activity_log,
         loading: state.loading,
     })
 );

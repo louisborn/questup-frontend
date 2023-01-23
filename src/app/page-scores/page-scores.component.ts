@@ -12,7 +12,7 @@ import { ServiceScoresService } from './service-scores.service';
 export class PageScoresComponent implements OnInit {
   scores$: Observable<any>;
 
-  showLevelUpFeature: boolean = false;
+  showLevelUpFeatModal: boolean = false;
 
   constructor(private store: Store, private service: ServiceScoresService) {
     this.scores$ = this.store.select(selectQuests);
@@ -40,6 +40,6 @@ export class PageScoresComponent implements OnInit {
   }
 
   toggleLevelUpFeatureModal() {
-    this.showLevelUpFeature = !this.showLevelUpFeature;
+    this.showLevelUpFeatModal = !this.showLevelUpFeatModal;
   }
 }

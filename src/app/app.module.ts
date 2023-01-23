@@ -28,6 +28,8 @@ import { CommonModule } from '@angular/common';
 import { StudentActivityHeatMapComponent } from './components/student-activity-heat-map/student-activity-heat-map.component';
 import { LevelUpModalComponent } from './components/level-up-modal/level-up-modal.component';
 import { SetpIndicatorComponent } from './components/setp-indicator/setp-indicator.component';
+import { StudentGradeLineChartComponent } from './components/student-grade-line-chart/student-grade-line-chart.component';
+import { StudentPersonalBarChartComponent } from './components/student-personal-bar-chart/student-personal-bar-chart.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -45,7 +47,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
     SimpleModalComponent,
     StudentActivityHeatMapComponent,
     LevelUpModalComponent,
-    SetpIndicatorComponent
+    SetpIndicatorComponent,
+    StudentGradeLineChartComponent,
+    StudentPersonalBarChartComponent
 
   ],
   imports: [
