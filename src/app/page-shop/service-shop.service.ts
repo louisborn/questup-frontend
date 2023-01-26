@@ -42,6 +42,7 @@ export class ServiceShopService {
             user_point_balance: data.user_scores.payload[0].points_balance,
             has_today_been_redeemed:
               data.user_scores.payload[0].latest_redeem_date,
+            bought_items: data.user_scores.payload[0].bought_items,
           })
         );
       },
@@ -76,9 +77,7 @@ export class ServiceShopService {
       )
       .subscribe({
         next: (response: any) => {
-          if (response.payload[0].status === 'Okay') {
-            this.store.dispatch(buyShopItem({ item_price: itemPrice }));
-          }
+          this.store.dispatch(buyShopItem({ item_id: itemId, item_price: itemPrice }));
         },
         error: (error: any) => {},
         complete: () => {

@@ -8,6 +8,7 @@ export interface ShopState {
   shop_items: Array<any>;
   user_point_balance: number;
   has_today_been_redeemed: boolean;
+  bought_items: Array<string>;
   show_daily_chest_win: boolean;
   daily_chest_win: number;
   loading: boolean;
@@ -18,6 +19,7 @@ export const initialState: ShopState = {
   shop_items: [],
   user_point_balance: -9999,
   has_today_been_redeemed: true,
+  bought_items: [],
   show_daily_chest_win: false,
   daily_chest_win: -9999,
   loading: false,
@@ -30,17 +32,19 @@ export const shopReducer = createReducer(
     ShopActions.fillShopPageData,
     (
       state: ShopState,
-      { shop_items, user_point_balance, has_today_been_redeemed }
+      { shop_items, user_point_balance, has_today_been_redeemed, bought_items }
     ) => ({
       ...state,
       shop_items: shop_items,
       user_point_balance: user_point_balance,
       has_today_been_redeemed: has_today_been_redeemed,
+      bought_items: bought_items,
     })
   ),
-  on(ShopActions.buyShopItem, (state: ShopState, {item_price}) => ({
+  on(ShopActions.buyShopItem, (state: ShopState, {item_id, item_price}) => ({
     ...state,
-    user_point_balance: (state.user_point_balance - item_price),
+    bought_items: [...state.bought_items, item_id],
+    user_point_balance: state.user_point_balance - item_price,
   })),
   on(ShopActions.showDailyChestWin, (state: ShopState, {daily_chest_win}) => ({
     ...state,

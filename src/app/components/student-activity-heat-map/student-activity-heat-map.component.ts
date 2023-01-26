@@ -55,6 +55,9 @@ export class StudentActivityHeatMapComponent {
           type: 'heatmap',
           hoverongaps: false,
           colorscale: this.colorscaleValue,
+          hovertemplate: '<i>Calender Week: %{y}</i>' +
+                        '<br><b>Week Day</b>: %{x}<br>' +
+                        `<br><b>Activity</b>: %{z}<br>`,
         }
       ],
       layout: {autosize: true}

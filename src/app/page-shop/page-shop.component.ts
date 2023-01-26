@@ -34,4 +34,13 @@ export class PageShopComponent implements OnInit {
       this.store.dispatch(closeDailyChestWin());
     }
   }
+
+  getBougthItems(shopItems: Array<string>, boughtItems: Array<string>) {
+    let result:any = [];
+    boughtItems.forEach((id:any) => {
+      let itemIsInUserPossession = shopItems.find((item:any) => item._id == id);
+      result.push(itemIsInUserPossession);
+    });
+    return result;
+  }
 }

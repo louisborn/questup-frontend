@@ -48,6 +48,10 @@ export class LevelUpModalComponent {
     this.closeModalEvent.emit('close');
   }
 
+  isCurrentPage(indicator: number, page: number){
+    return indicator === page;
+  }
+
   isStepLast(currentStep: number) {
     return currentStep === this.availableModalSteps.length;
   }
