@@ -7,7 +7,7 @@ export const environment = {
   teacherId: "63a7172a8883bff3af39eb2e",
   subjectId: 0,
   studentId: "63a805c45958c3394e0513b5",
-  base: "http://localhost:6009/quest-up/rest/v1/",
+  base: "http://127.0.0.1:6009/quest-up/rest/v1/",
 };
 
 /*

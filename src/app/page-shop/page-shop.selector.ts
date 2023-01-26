@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromShop from '../page-shop/page-shop.reducer';
 
@@ -11,6 +12,7 @@ export const selectShop = createSelector(
         shop_items: shop.shop_items,
         user_point_balance: shop.user_point_balance,
         has_today_been_redeemed: shop.has_today_been_redeemed,
+        bought_items: shop.bought_items,
         daily_chest_win: shop.daily_chest_win,
         show_daily_chest_win: shop.show_daily_chest_win,
         loading: shop.loading,

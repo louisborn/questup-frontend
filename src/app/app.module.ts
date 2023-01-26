@@ -15,11 +15,23 @@ import { QuestsComponent } from './components/quests/quests.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LoaderComponent } from './components/loader/loader.component';
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
 import * as fromQuests from '../app/page-quests/page-quests.reducer';
 import * as fromShop from '../app/page-shop/page-shop.reducer';
+import * as fromScores from '../app/page-scores/page-scores.reducer';
+import * as fromLevelUpFeat from '../app/components/level-up-modal/level-up-modal.reducer';
 import { ShopItemComponent } from './components/shop-item/shop-item.component';
 import { SimpleModalComponent } from './components/simple-modal/simple-modal.component'; 
+import { CommonModule } from '@angular/common';
+import { StudentActivityHeatMapComponent } from './components/student-activity-heat-map/student-activity-heat-map.component';
+import { LevelUpModalComponent } from './components/level-up-modal/level-up-modal.component';
+import { SetpIndicatorComponent } from './components/setp-indicator/setp-indicator.component';
+import { StudentGradeLineChartComponent } from './components/student-grade-line-chart/student-grade-line-chart.component';
+import { StudentPersonalBarChartComponent } from './components/student-personal-bar-chart/student-personal-bar-chart.component';
+
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
@@ -32,7 +44,12 @@ import { SimpleModalComponent } from './components/simple-modal/simple-modal.com
     QuestsComponent,
     LoaderComponent,
     ShopItemComponent,
-    SimpleModalComponent
+    SimpleModalComponent,
+    StudentActivityHeatMapComponent,
+    LevelUpModalComponent,
+    SetpIndicatorComponent,
+    StudentGradeLineChartComponent,
+    StudentPersonalBarChartComponent
 
   ],
   imports: [
@@ -41,10 +58,14 @@ import { SimpleModalComponent } from './components/simple-modal/simple-modal.com
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
+    CommonModule,
+    PlotlyModule,
     StoreModule.forRoot(
       {
         questsRootState: fromQuests.questsReducer,
         shopRootState: fromShop.shopReducer,
+        scoresRootState: fromScores.scoreReducer,
+        levelUpRootState: fromLevelUpFeat.levelUpFeatReducer,
       },
       {}
     ),

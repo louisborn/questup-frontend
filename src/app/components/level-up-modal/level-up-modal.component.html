@@ -1,0 +1,373 @@
+<div *ngIf="levelUpFeat$ | async as data" class="relative z-10" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div
+                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-fit">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div
+                            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <img src="../../../assets/small-level-bg.svg" alt="level" />
+                        </div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-lg font-medium leading-6 text-gray-900 capitalize" id="modal-title">
+                                Calculate your future level
+                            </h3>
+                            <p class="text-sm font-normal text-gray-400 mb-4" id="modal-subtitle">
+                                With the help of these calculations you can see where you can
+                                improve.
+                            </p>
+                            <app-setp-indicator [steps]="availableModalSteps"
+                                [activeStep]="data.indicator"></app-setp-indicator>
+                            <div class="mt-4">
+                                <div class="my-2">
+                                    <section *ngIf="isCurrentPage(data.indicator, 0)">
+                                        <div>
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Tool activity /per week
+                                            </h3>
+                                            <ul
+                                                class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="studytime" id="studytime_1" value="1"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="list-radio-license"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">&#60;2
+                                                            hours
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="studytime" id="studytime_2" value="2"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="list-radio-id"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">2
+                                                            to 5 hours</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="studytime" id="studytime_3" value="3"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="list-radio-millitary"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">5
+                                                            to 10 hours</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="studytime" id="studytime_4" value="4"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="list-radio-passport"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">&#62;10
+                                                            hours</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-4 w-48">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Quests submitted (1st. semester)
+                                            </h3>
+                                            <div class="flex gap-2 items-center">
+                                                <input type="number" name="g1" id="g1" placeholder="0" min="0" max="100"
+                                                    step="10"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    required>
+                                                <label for="g1">%</label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 w-48">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Quests submitted (2nd. semester)
+                                            </h3>
+                                            <div class="flex gap-2 items-center">
+                                                <input type="number" name="g2" id="g2" placeholder="0" min="0" max="100"
+                                                    step="10"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    required>
+                                                <label for="g2">%</label>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section *ngIf="isCurrentPage(data.indicator, 1)">
+                                        <div>
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Class failures
+                                            </h3>
+                                            <ul
+                                                class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="failures" id="failures_0" value="0"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="failures_0"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">0
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="failures" id="failures_1" value="1"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="failures_1"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">1</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="failures" id="failures_2" value="2"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="failures_2"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">2</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="failures" id="failures_4" value="4"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="failures_4"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">More
+                                                            than 2</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-4 w-48">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Class absences /current year
+                                            </h3>
+                                            <div class="flex gap-2 items-center">
+                                                <input type="number" max="93" min="0"
+                                                    placeholder="Enter amount of absences" name="absences" id="absences"
+                                                    step="1"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section *ngIf="isCurrentPage(data.indicator, 2)">
+                                        <div class="mt-4">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Freetime
+                                            </h3>
+                                            <ul
+                                                class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="freetime" id="freetime_1" value="1"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="freetime_1"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Very
+                                                            low
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="freetime" id="freetime_2" value="2"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="freetime_2"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Low</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="freetime" id="freetime_3" value="3"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="freetime_3"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Frequent</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="freetime" id="freetime_4" value="4"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="freetime_4"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">High</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="freetime" id="freetime_5" value="5"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="freetime_5"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Very
+                                                            high</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Go out
+                                            </h3>
+                                            <ul
+                                                class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="goout" id="goout_1" value="1"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="goout_1"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Very
+                                                            low
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="goout" id="goout_2" value="2"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="goout_2"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Low</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="goout" id="goout_3" value="3"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="goout_3"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Frequent</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="goout" id="goout_4" value="4"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="goout_4"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">High</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="goout" id="goout_5" value="5"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="goout_5"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Very
+                                                            high</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                                                Traveltime
+                                            </h3>
+                                            <ul
+                                                class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="traveltime" id="traveltime_1"
+                                                            value="1"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="traveltime_1"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">&#60;15
+                                                            min.
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="traveltime" id="traveltime_2"
+                                                            value="2"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="traveltime_2"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">15
+                                                            to 30 min.</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="traveltime" id="traveltime_3"
+                                                            value="3"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="traveltime_3"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">30
+                                                            min.</label>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+                                                    <div class="flex items-center pl-3">
+                                                        <input type="radio" name="traveltime" id="traveltime_4"
+                                                            value="4"
+                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                        <label for="traveltime_4"
+                                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">&#62;1
+                                                            Hour</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section *ngIf="isCurrentPage(data.indicator, 3)">
+                                        <button *ngIf="data.prediction_result.length === 0" type="button"
+                                            (click)="calculatePredictedLevel(data)"
+                                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                            Calculate
+                                        </button>
+                                        <div *ngIf="data.prediction_result.length > 0" class="flex gap-4 flex-col 2xl:flex-row">
+                                            <app-student-grade-line-chart
+                                                [userGrades]="data.prediction_result"></app-student-grade-line-chart>
+                                            <app-student-personal-bar-chart [userPersonal]="data.user_personal"
+                                                [userInputForPersonal]="{
+                    studytime: data.studytime,
+                    absences: data.absences,
+                    freetime: data.freetime,
+                    goout: data.goout,
+                    g1: data.g1,
+                    g2: data.g2,
+                    failures: data.failures,
+                    traveltime: data.traveltime
+                  }"></app-student-personal-bar-chart>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button *ngIf="!isStepLast(data.indicator)" type="button" (click)="emitNextPage(data.indicator)"
+                        class="mt-3 inline-flex gap-2 w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Next
+                    </button>
+                    <button *ngIf="!isStepLast(data.indicator)" type="button" (click)="emitPrevPage(data.indicator)"
+                        [disabled]="isStepFirst(data.indicator)"
+                        class="mt-3 inline-flex gap-2 w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Previous
+                    </button>
+                    <button type="button" (click)="emitCloseModalEvent()"
+                        class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
