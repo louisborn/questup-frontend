@@ -15,6 +15,7 @@ export const selectShop = createSelector(
         bought_items: shop.bought_items,
         daily_chest_win: shop.daily_chest_win,
         show_daily_chest_win: shop.show_daily_chest_win,
+        show_bought_item: shop.show_bought_item,
         loading: shop.loading,
         button_loading: shop.button_loading,
     })

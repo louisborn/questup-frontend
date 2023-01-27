@@ -9,6 +9,7 @@ import {
   showDailyChestWin,
   toggleButtonLoading,
   toggleLoading,
+  toggleShowBoughtItem,
 } from './page-shop.actions';
 
 @Injectable({
@@ -78,6 +79,7 @@ export class ServiceShopService {
       .subscribe({
         next: (response: any) => {
           this.store.dispatch(buyShopItem({ item_id: itemId, item_price: itemPrice }));
+          this.store.dispatch(toggleShowBoughtItem());
         },
         error: (error: any) => {},
         complete: () => {

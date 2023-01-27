@@ -42,7 +42,7 @@ export class ServiceScoresService {
   fetchPredictedLevelByUserInput(payload: any, currentPredictedGrade: number) {
     this.store.dispatch(toggleLoading());
     this.http
-      .post(`${environment.base}student/${environment.studentId}/level`, {
+      .post(`${environment.base}predict/level`, {
         payload: payload,
       })
       .subscribe({
