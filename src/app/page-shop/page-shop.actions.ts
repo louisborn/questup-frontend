@@ -15,6 +15,10 @@ export const buyShopItem = createAction(
   props<{item_id: string, item_price: number}>()
 );
 
+export const toggleShowBoughtItem = createAction(
+  '[Shop] Toggle Show Bought Item'
+);
+
 
 export const showDailyChestWin = createAction(
   '[Shop] Daily Chest Collected',

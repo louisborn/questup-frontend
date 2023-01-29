@@ -10,6 +10,7 @@ export interface ShopState {
   has_today_been_redeemed: boolean;
   bought_items: Array<string>;
   show_daily_chest_win: boolean;
+  show_bought_item: boolean;
   daily_chest_win: number;
   loading: boolean;
   button_loading: boolean;
@@ -21,6 +22,7 @@ export const initialState: ShopState = {
   has_today_been_redeemed: true,
   bought_items: [],
   show_daily_chest_win: false,
+  show_bought_item: false,
   daily_chest_win: -9999,
   loading: false,
   button_loading: false,
@@ -63,5 +65,9 @@ export const shopReducer = createReducer(
   on(ShopActions.toggleButtonLoading, (state: ShopState, {}) => ({
     ...state,
     button_loading: !state.button_loading,
+  })),
+  on(ShopActions.toggleShowBoughtItem, (state: ShopState, {}) => ({
+    ...state,
+    show_bought_item: !state.show_bought_item,
   })),
 );

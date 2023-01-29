@@ -9,6 +9,7 @@ import {
   showDailyChestWin,
   toggleButtonLoading,
   toggleLoading,
+  toggleShowBoughtItem,
 } from './page-shop.actions';
 
 @Injectable({
@@ -38,11 +39,11 @@ export class ServiceShopService {
       next: (data: any) => {
         this.store.dispatch(
           fillShopPageData({
-            shop_items: data.shop_items.payload,
-            user_point_balance: data.user_scores.payload[0].points_balance,
+            shop_items: data.shop_items,
+            user_point_balance: data.user_scores[0].points_balance,
             has_today_been_redeemed:
-              data.user_scores.payload[0].latest_redeem_date,
-            bought_items: data.user_scores.payload[0].bought_items,
+              data.user_scores[0].latest_redeem_date,
+            bought_items: data.user_scores[0].bought_items,
           })
         );
       },
@@ -58,7 +59,7 @@ export class ServiceShopService {
     this.httpGetDailyChestWin.subscribe({
       next: (data: any) => {
         this.store.dispatch(
-          showDailyChestWin({ daily_chest_win: data.payload.win })
+          showDailyChestWin({ daily_chest_win: data.win })
         );
       },
       error: (error: any) => {},
@@ -77,7 +78,9 @@ export class ServiceShopService {
       )
       .subscribe({
         next: (response: any) => {
+          console.log(response);
           this.store.dispatch(buyShopItem({ item_id: itemId, item_price: itemPrice }));
+          //this.store.dispatch(toggleShowBoughtItem());
         },
         error: (error: any) => {},
         complete: () => {

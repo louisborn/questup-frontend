@@ -4,7 +4,7 @@ import { ServiceShopService } from './service-shop.service';
 import * as fromShop from '../page-shop/page-shop.reducer';
 import { Store } from '@ngrx/store';
 import { selectShop } from './page-shop.selector';
-import { closeDailyChestWin } from './page-shop.actions';
+import { closeDailyChestWin, toggleShowBoughtItem } from './page-shop.actions';
 
 @Component({
   selector: 'app-page-shop',
@@ -32,6 +32,12 @@ export class PageShopComponent implements OnInit {
   proceedDailyChestModalEvent(value: string) {
     if(value=='close') {
       this.store.dispatch(closeDailyChestWin());
+    }
+  }
+
+  proceedBoughtItemModalEvent(value: string) {
+    if(value=='close') {
+      this.store.dispatch(toggleShowBoughtItem());
     }
   }
 

@@ -3,9 +3,9 @@
   <app-simple-modal *ngIf="data.show_daily_chest_win" (closeModalEvent)="proceedDailyChestModalEvent($event)"
     [image]="'../../assets/chest.jpg'" [title]="'Daily Reward'" [subtitle]="'Collect your daily reward now!'"
     [content]="data.daily_chest_win+' Coins'" [buttonText]="'Collect'"></app-simple-modal>
-  <app-simple-modal *ngIf="data.show_daily_chest_win" (closeModalEvent)="proceedDailyChestModalEvent($event)"
-    [image]="'../../assets/chest.jpg'" [title]="'Daily Reward'" [subtitle]="'Collect your daily reward now!'"
-    [content]="data.daily_chest_win+' Coins'" [buttonText]="'Collect'"></app-simple-modal>
+  <app-simple-modal *ngIf="data.show_bought_item" (closeModalEvent)="proceedBoughtItemModalEvent($event)" [image]="''"
+    [title]="'Success'" [subtitle]="''" [content]="'The item was successfully purchased.'"
+    [buttonText]="'Close'"></app-simple-modal>
   <div class="my-8 mx-8 h-auto">
     <section>
       <div class="flex items-center justify-between mb-8">
@@ -57,11 +57,26 @@
         </div>
       </div>
     </section>
-    <section>
-      <h1 class="text-2xl font-bold my-8">My Items</h1>
-      <div *ngIf="data.bought_items.length > 0">
-        <div *ngFor="let item of getBougthItems(data.shop_items, data.bought_items)">
-          <p>{{item.title}}</p>
+    <section *ngIf="data.bought_items.length > 0">
+      <h1 class="relative w-fit text-2xl font-bold my-8">My Items<div
+          class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-sky-500 border-2 border-white rounded-full -top-1 -right-4 dark:border-gray-900">
+          {{data.bought_items.length}}</div>
+      </h1>
+      <div class="flex gap-4">
+        <div *ngFor="let item of getBougthItems(data.shop_items, data.bought_items)" class="justify-between w-fit">
+          <div
+            class="flex items-center gap-4 h-20 p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+            <div class="flex flex-col">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="text-sm font-bold capitalize mb-1">{{item.title}}</p>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="text-xs font-normal capitalize text-gray-500 mb-0.5">
+                  Usage: <strong>{{item.usage}}</strong>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <p *ngIf="data.bought_items.length === 0" class="text-xs font-normal text-gray-400">No items bought</p>
