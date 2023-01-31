@@ -8,21 +8,25 @@ import { Component, Input } from '@angular/core';
 export class StudentPersonalBarChartComponent {
   @Input() userPersonal: any = null;
   @Input() userInputForPersonal: any = null;
+  @Input() xBarLabels: any = null;
+  @Input() visTitle: any = null;
+  @Input() yAxisTitle: any = null;
 
   private _personal: any;
   private _inputForPersonal: any;
-  private _xBarLabels: Array<string> = ['Study time', 'Failures', 'Absences', 'Q1', 'Q2', 'Freetime', 'Go out', 'Traveltime'];
+  private _xBarLabels: any;
+  private _visTitle: any;
+  private _yAxisTitle: any;
   
   public graph:any;
 
   ngOnInit() {
-    this._personal = this.userPersonal[0];
+    this._personal = this.userPersonal;
     this._inputForPersonal = this.userInputForPersonal;
+    this._xBarLabels = this.xBarLabels;
+    this._visTitle = this.visTitle;
+    this._yAxisTitle = this.yAxisTitle;
     this.initGraph();
-  }
-
-  formatGraphYData(data: any) {
-    return [data.studytime, data.failures, data.absences, data.g1, data.g2, data.freetime, data.goout, data.traveltime];
   }
 
   initGraph() {
@@ -30,18 +34,18 @@ export class StudentPersonalBarChartComponent {
       data: [
         {
           x: this._xBarLabels,
-          y: this.formatGraphYData(this._personal),
+          y: this._inputForPersonal,
           name: 'Current',
           type: 'bar',
         },
         {
           x: this._xBarLabels,
-          y: this.formatGraphYData(this._inputForPersonal),
+          y: this._personal,
           name: 'Future',
           type: 'bar',
         }
       ],
-      layout: {autosize: true}
+      layout: {width: 350, height: 350, title: this._visTitle, yaxis: {title: this._yAxisTitle}}
     }
   }
 }

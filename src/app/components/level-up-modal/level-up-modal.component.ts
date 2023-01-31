@@ -12,6 +12,7 @@ import {
   setToolUsageInput,
 } from './level-up-modal.actions';
 import { selectLevelUpFeat } from './level-up-modal.selector';
+import { getStudytime } from 'src/app/page-scores/page-scores.reducer';
 
 @Component({
   selector: 'app-level-up-modal',
@@ -23,6 +24,8 @@ export class LevelUpModalComponent {
   @Input() userPersonal: any;
 
   @Output() closeModalEvent: EventEmitter<string> = new EventEmitter<string>();
+
+  convertStudytime = getStudytime;
 
   availableModalSteps: Array<any> = [
     { title: 'Tool Usage', indicator: 0 },

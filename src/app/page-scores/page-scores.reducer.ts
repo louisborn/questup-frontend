@@ -51,7 +51,7 @@ export const scoreReducer = createReducer(
     total_gained_points: scores.total_gained_points,
     total_quests_completed: scores.total_quests_completed,
     total_quests_available: scores.total_quests_available,
-    user_personal: scores.user_personal,
+    user_personal: work(scores.user_personal[0]),
     user_activity_log: scores.activity_log,
   })),
   on(ScoresActions.toggleLoading, (state: ScoresState, {}) => ({
@@ -59,3 +59,44 @@ export const scoreReducer = createReducer(
     loading: !state.loading,
   }))
 );
+
+function work(data:UserPersonalState) {
+  let g1Percentage = getPercentageOfGrade(data.g1);
+  let g2Percentage = getPercentageOfGrade(data.g2);
+  let studytime:number = getStudytime(data.studytime);
+
+  return {
+    absences: data.absences,
+    failures: data.failures,
+    freetime: data.freetime,
+    g1: g1Percentage,
+    g2: g2Percentage,
+    goout: data.goout,
+    studytime: studytime,
+    traveltime: data.traveltime,
+  };;
+}
+
+function getPercentageOfGrade(grade: number) {
+  let portugueseMaxGrade = 20;  
+  return ((grade / portugueseMaxGrade) * 100)
+}
+
+export function getStudytime(rawStudytime: number) {
+  let studytime = 2;
+  switch (rawStudytime) {
+    case 1:
+      studytime = 1;
+      break;
+    case 2:
+      studytime = 2;
+      break;
+    case 3:
+      studytime = 5;
+      break;
+    case 4:
+      studytime = 10;
+      break;
+  }
+  return studytime;
+}
