@@ -161,7 +161,9 @@
                                     <section *ngIf="isCurrentPage(data.indicator, 2)">
                                         <div class="mt-4">
                                             <h3 class="flex mb-4 font-semibold text-gray-900 dark:text-white">
-                                                Freetime <img title="Free time after school" src="../../../assets/help.svg" alt="help tooltip" width="16px" height="16px" class="mx-1">
+                                                Freetime <img title="Free time after school"
+                                                    src="../../../assets/help.svg" alt="help tooltip" width="16px"
+                                                    height="16px" class="mx-1">
                                             </h3>
                                             <ul
                                                 class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -217,7 +219,9 @@
                                         </div>
                                         <div class="mt-4">
                                             <h3 class="flex mb-4 font-semibold text-gray-900 dark:text-white">
-                                                Go out <img title="Going out with friends" src="../../../assets/help.svg" alt="help tooltip" width="16px" height="16px" class="mx-1">
+                                                Go out <img title="Going out with friends"
+                                                    src="../../../assets/help.svg" alt="help tooltip" width="16px"
+                                                    height="16px" class="mx-1">
                                             </h3>
                                             <ul
                                                 class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -273,7 +277,9 @@
                                         </div>
                                         <div class="mt-4">
                                             <h3 class="flex mb-4 font-semibold text-gray-900 dark:text-white">
-                                                Traveltime <img title="Home to school travel time" src="../../../assets/help.svg" alt="help tooltip" width="16px" height="16px" class="mx-1">
+                                                Traveltime <img title="Home to school travel time"
+                                                    src="../../../assets/help.svg" alt="help tooltip" width="16px"
+                                                    height="16px" class="mx-1">
                                             </h3>
                                             <ul
                                                 class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -334,17 +340,47 @@
                                         <div *ngIf="data.prediction_result.length > 0" class="grid grid-cols-12 gap-4">
                                             <!--<app-student-grade-line-chart
                                                 [userGrades]="data.prediction_result"></app-student-grade-line-chart>-->
-                                            <app-indicator class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default" [data]="data.prediction_result[1]" [referenceData]="data.prediction_result[0]" [visTitle]="'Possible level change'" [text]="'Level'"></app-indicator>
-                                            <app-indicator class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default" [data]="data.absences" [referenceData]="data.user_personal.absences" [visTitle]="'Future absences'" [text]="'Absence'" [colorSchemeReversed]="true"></app-indicator>
-                                            <app-indicator class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default" [data]="data.failures" [referenceData]="data.user_personal.failures" [visTitle]="'Future class failures'" [text]="'Failure'" [colorSchemeReversed]="true"></app-indicator>
-                                            <app-student-personal-bar-chart class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default " [userPersonal]="[data.user_personal.g1, data.user_personal.g2]"
-                                                [userInputForPersonal]="[data.g1, data.g2]" [xBarLabels]="['1st. Semester', '2nd. Semester']" [visTitle]="'Quest completion rate'" [yAxisTitle]="'%'"></app-student-personal-bar-chart>
-                                            <app-student-personal-bar-chart class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default " [userPersonal]="[data.user_personal.studytime]"
-                                                [userInputForPersonal]="[convertStudytime(data.studytime)]" [xBarLabels]="['Studytime']" [visTitle]="'Current and targeted study time'" [yAxisTitle]="'min. hrs/ week'"></app-student-personal-bar-chart>
-                                            <app-student-personal-bar-chart class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default " [userPersonal]="[data.user_personal.freetime]"
-                                                [userInputForPersonal]="[data.freetime]" [xBarLabels]="['Freetime']" [visTitle]="'Current and targeted free time'" [yAxisTitle]="'low to high'"></app-student-personal-bar-chart>
-                                            <app-student-personal-bar-chart class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default " [userPersonal]="[data.user_personal.goout]"
-                                                [userInputForPersonal]="[data.goout]" [xBarLabels]="['Go out']" [visTitle]="'Current and targeted going out time'" [yAxisTitle]="'low to high'"></app-student-personal-bar-chart>
+                                            <app-indicator
+                                                class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default"
+                                                [data]="data.prediction_result[1]"
+                                                [referenceData]="data.prediction_result[0]"
+                                                [visTitle]="'Possible level change'" [text]="'Level'"></app-indicator>
+                                            <app-indicator
+                                                class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default"
+                                                [data]="data.absences" [referenceData]="data.user_personal.absences"
+                                                [visTitle]="'Future absences'" [text]="'Absence'"
+                                                [colorSchemeReversed]="true"></app-indicator>
+                                            <app-indicator
+                                                class="col-span-4 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default"
+                                                [data]="data.failures" [referenceData]="data.user_personal.failures"
+                                                [visTitle]="'Future class failures'" [text]="'Failure'"
+                                                [colorSchemeReversed]="true"></app-indicator>
+                                            <app-student-personal-bar-chart
+                                                class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default "
+                                                [userPersonal]="[data.user_personal.g1, data.user_personal.g2]"
+                                                [userInputForPersonal]="[data.g1, data.g2]"
+                                                [xBarLabels]="['1st. Semester', '2nd. Semester']"
+                                                [visTitle]="'Quest completion rate'"
+                                                [yAxisTitle]="'%'"></app-student-personal-bar-chart>
+                                            <app-student-personal-bar-chart
+                                                class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default "
+                                                [userPersonal]="[data.user_personal.studytime]"
+                                                [userInputForPersonal]="[convertStudytime(data.studytime)]"
+                                                [xBarLabels]="['Studytime']"
+                                                [visTitle]="'Current and targeted study time'"
+                                                [yAxisTitle]="'min. hrs/ week'"></app-student-personal-bar-chart>
+                                            <app-student-personal-bar-chart
+                                                class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default "
+                                                [userPersonal]="[data.user_personal.freetime]"
+                                                [userInputForPersonal]="[data.freetime]" [xBarLabels]="['Freetime']"
+                                                [visTitle]="'Current and targeted free time'"
+                                                [yAxisTitle]="'low to high'"></app-student-personal-bar-chart>
+                                            <app-student-personal-bar-chart
+                                                class="col-span-3 flex justify-center items-center rounded-md bg-white rounded-md shadow-xl p-8 cursor-default "
+                                                [userPersonal]="[data.user_personal.goout]"
+                                                [userInputForPersonal]="[data.goout]" [xBarLabels]="['Go out']"
+                                                [visTitle]="'Current and targeted going out time'"
+                                                [yAxisTitle]="'low to high'"></app-student-personal-bar-chart>
                                         </div>
                                     </section>
                                 </div>
