@@ -25,7 +25,7 @@ export class StudentGradeLineChartComponent {
           type: 'line',
         }
       ],
-      layout: {autosize: true}
+      layout: {width: 500, height: 500}
     }
   }
 }
