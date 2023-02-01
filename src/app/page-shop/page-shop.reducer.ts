@@ -46,12 +46,13 @@ export const shopReducer = createReducer(
   on(ShopActions.buyShopItem, (state: ShopState, {item_id, item_price}) => ({
     ...state,
     bought_items: [...state.bought_items, item_id],
-    user_point_balance: state.user_point_balance - item_price,
+    user_point_balance: calcNewBalance(state.user_point_balance, item_price),
   })),
   on(ShopActions.showDailyChestWin, (state: ShopState, {daily_chest_win}) => ({
     ...state,
     daily_chest_win: daily_chest_win,
     show_daily_chest_win: true,
+    user_point_balance: calcNewBalance(state.user_point_balance, (daily_chest_win * (-1)))
   })),
   on(ShopActions.closeDailyChestWin, (state: ShopState, {}) => ({
     ...state,
@@ -71,3 +72,7 @@ export const shopReducer = createReducer(
     show_bought_item: !state.show_bought_item,
   })),
 );
+
+function calcNewBalance(current: number, toSubstract: number) {
+  return current - toSubstract;
+}
