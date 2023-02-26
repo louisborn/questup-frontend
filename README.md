@@ -8,7 +8,7 @@
 <h3 align="center">Quest Up</h3>
 
   <p align="center">
-    A dashboard to motivate students in middle school to engage with learning content
+    A web application to motivate middle school students to engage with learning materials.
     <br />
   </p>
 </div>
