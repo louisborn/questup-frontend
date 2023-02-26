@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-QuestUp is a dashboard to motivate students in middle school to engage with learning content even after the lesson is over. The final subject grade("Level") is predicted using Machine Learning. "Quests" enable students to receive points. Students can receive awards and trophies. 
+QuestUP is a web application to motivate middle school students to engage with learning materials even after the school time. The final subject grade (displayed to the students as a level) is predicted using ML techniques based on the students performance. "Quests" enable students to receive points. Students can receive awards and trophies. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
