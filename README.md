@@ -55,7 +55,7 @@ QuestUp is a dashboard to motivate students in middle school to engage with lear
 ### Built With
 
 * [![Angular][Angular.io]][Angular-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Tailwind][Tailwind.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
