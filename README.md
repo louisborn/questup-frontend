@@ -80,7 +80,7 @@ QuestUP is a web application to motivate middle school students to engage with l
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/louisborn/questup-frontend.git
    ```
 2. Install NPM packages
    ```sh
