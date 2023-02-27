@@ -5,10 +5,10 @@
     <img src="https://github.com/louisborn/questup-frontend/blob/main/src/assets/quest-up-logo.png" alt="Logo" width="100%" height="100%">
   </a>
 
-<h3 align="center">Quest Up</h3>
+<h3 align="center">QuestUP</h3>
 
   <p align="center">
-    A dashboard to motivate students in middle school to engage with learning content
+    A web application to motivate middle school students to engage with learning materials.
     <br />
   </p>
 </div>
@@ -44,9 +44,9 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About the Project
 
-QuestUp is a dashboard to motivate students in middle school to engage with learning content even after the lesson is over. The final subject grade("Level") is predicted using Machine Learning. "Quests" enable students to receive points. Students can receive awards and trophies. 
+QuestUP is a web application to motivate middle school students to engage with learning materials even after the school time. The final subject grade (displayed to the students as a level) is predicted using ML techniques based on the students performance. By completing "Quests" students can receive points. With sufficient points, shop items are automatically unlocked which then can be purchased by the students.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -55,7 +55,8 @@ QuestUp is a dashboard to motivate students in middle school to engage with lear
 ### Built With
 
 * [![Angular][Angular.io]][Angular-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+* ![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
