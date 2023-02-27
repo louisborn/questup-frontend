@@ -55,7 +55,7 @@ QuestUP is a web application to motivate middle school students to engage with l
 ### Built With
 
 * [![Angular][Angular.io]][Angular-url]
-* [![Tailwind][Tailwind.com]][Bootstrap-url]
+* ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
