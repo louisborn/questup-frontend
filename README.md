@@ -51,8 +51,6 @@
 
 QuestUP is a web application to motivate middle school students to engage with learning materials even after the school time. The final subject grade (displayed to the students as a level) is predicted using ML techniques based on the students performance. By completing "Quests" students can receive points. With sufficient points, shop items are automatically unlocked which then can be purchased by the students.  
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
