@@ -36,7 +36,6 @@
       </ul>
     </li>
     <li><a href="#screenshots">Screenshots</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -61,9 +60,12 @@ This project was submited as a final project for  Learning Analytics course unde
 * ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 * ![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
 
+For libraries/algorithms used in the backend refere to our [questup-api repository](https://github.com/louisborn/questup-api).
+
 
 ### Architecture
 <img src="https://github.com/louisborn/questup-frontend/blob/main/architecture.PNG" alt="architecture" width="100%" height="100%">
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,17 +118,6 @@ This project was submited as a final project for  Learning Analytics course unde
 <img src="https://github.com/louisborn/questup-frontend/blob/main/questup_scores.PNG" alt="scores" width="100%" height="100%">
 <img src="https://github.com/louisborn/questup-frontend/blob/main/questup_lvl_calc.PNG" alt="level calc" width="100%" height="100%">
 <img src="https://github.com/louisborn/questup-frontend/blob/main/questup_lvl_result.PNG" alt="level result" width="100%" height="100%">
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- Quests Page
-- Shop Page
-- Scores Page
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
