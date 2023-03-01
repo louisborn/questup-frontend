@@ -80,6 +80,10 @@ QuestUP is a web application to motivate middle school students to engage with l
   ```sh
   npm install -g @angular/cli
   ```
+* Tailwindcss
+  ```sh
+  npm install -D tailwindcss
+  ```
 
 ### Installation
 
