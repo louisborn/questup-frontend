@@ -160,25 +160,19 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 - [@louisborn](https://github.com/louisborn)
 - [@jordyhz](https://github.com/jordyhz)
-
-
-
-<!-- CONTACT -->
-## Contact
-
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- [@ingasun](https://github.com/ingasun)
+- [@nigoss89](https://github.com/nigoss89)
 
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Tailwindcss](https://tailwindcss.com/)
+ - [Plotly.js](https://plotly.com/javascript/)
+ - [Angular](https://angular.io/)
+ - [Learning Analytics by Prof. Dr. Mohamed Amine Chatti](https://ude-soco.github.io/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
