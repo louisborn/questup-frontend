@@ -24,6 +24,9 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+      <ul>
+        <li><a href="#architecture">Architecture</a></li>
+      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -58,11 +61,11 @@ QuestUP is a web application to motivate middle school students to engage with l
 * ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 * ![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Architecture
 <img src="https://github.com/louisborn/questup-frontend/blob/main/architecture.PNG" alt="architecture" width="100%" height="100%">
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
