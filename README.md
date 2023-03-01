@@ -82,6 +82,10 @@ QuestUP is a web application to motivate middle school students to engage with l
   ```sh
   npm install -D tailwindcss
   ```
+* Plotly.js
+  ```sh
+  npm i --save plotly.js-dist-min
+  ```
 
 ### Installation
 
