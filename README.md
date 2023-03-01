@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://github.com/louisborn/questup-frontend/blob/main/logo.PNG" alt="Logo" width="100%" height="100%">
+    <img src="https://github.com/louisborn/questup-frontend/blob/main/logo.PNG" alt="Logo" width="50%" height="50%">
   </a>
 
 <h3 align="center">QuestUP</h3>
