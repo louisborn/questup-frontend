@@ -102,8 +102,12 @@ QuestUP is a web application to motivate middle school students to engage with l
 <!-- USAGE EXAMPLES -->
 ## Screenshots
 
-//Please add some screenshots here
-
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_dashboard.PNG" alt="dashboard" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_quest.PNG" alt="quest" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_store.PNG" alt="store" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_scores.PNG" alt="scores" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_lvl_calc.PNG" alt="level calc" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/blob/main/questup_lvl_result.PNG" alt="level result" width="100%" height="100%">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
