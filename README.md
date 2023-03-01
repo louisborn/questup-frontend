@@ -61,7 +61,7 @@ QuestUP is a web application to motivate middle school students to engage with l
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Architecture
-<img src="https://github.com/louisborn/questup-frontend/architecture.png" alt="Logo" width="100%" height="100%">
+<img src="https://github.com/louisborn/questup-frontend/architecture.PNG" alt="architecture" width="100%" height="100%">
 
 
 <!-- GETTING STARTED -->
